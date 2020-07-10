@@ -8,8 +8,16 @@ class HomeView extends StatelessWidget {
       child: Row(
         children: <Widget>[
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text('Home', style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),),
+              Text(
+                'Home',
+                style: TextStyle(
+                  fontSize: 40,
+                  // fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text('Welcome to your shadow journal.')
             ],
           ),
         ],
