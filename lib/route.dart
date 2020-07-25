@@ -7,6 +7,6 @@ import 'utils/models/common/route_model.dart';
 
 List<RouteItem> routes = [
   new RouteItem('Home', new HomeView(), Icons.home),
-  new RouteItem('Shadow', new MyShadowView(), Icons.filter_vintage),
-  new RouteItem('More', new MoreView(), Icons.more_horiz),
+  new RouteItem('Shadow', new MyShadowView(), Icons.filter_vintage, color: Colors.amber),
+  new RouteItem('More', new MoreView(), Icons.more_horiz, color: Colors.deepOrange),
 ];

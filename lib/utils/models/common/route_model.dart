@@ -4,6 +4,7 @@ class RouteItem {
   String name;
   Widget view;
   IconData icon;
+  Color color;
 
-  RouteItem(this.name, this.view, this.icon);
+  RouteItem(this.name, this.view, this.icon, {this.color: Colors.blue});
 }

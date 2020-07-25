@@ -32,6 +32,7 @@ dependencies:
   # User Defined Dependencies
 
   nice_button: ^0.1.7
+  gradient_app_bar: ^0.0.1
 
 dev_dependencies:
   flutter_test:

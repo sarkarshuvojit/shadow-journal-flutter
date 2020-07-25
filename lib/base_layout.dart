@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:gradient_app_bar/gradient_app_bar.dart';
 import 'package:shadow_journal/utils/models/common/route_model.dart';
 import './route.dart';
 
@@ -28,20 +29,45 @@ class _BaseLayoutState extends State<BaseLayout> {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: Colors.blue
-    ));
+    SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(statusBarColor: Colors.blue));
 
     return Scaffold(
-      body: Center(
-        child: this._selectedRoute.view,
+      resizeToAvoidBottomPadding: false,
+      appBar: GradientAppBar(
+        title: Text('Shadow Journal'),
+        centerTitle: true,
+        elevation: 0,
+      ),
+      body: GestureDetector(
+        onTap: () => FocusScope.of(context).requestFocus(new FocusNode()),
+        child: Center(
+          child: Container(
+            child: this._selectedRoute.view,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: FractionalOffset.topCenter,
+                end: FractionalOffset.bottomCenter,
+                colors: [
+                  Colors.blue,
+                  Colors.white,
+                ],
+              ),
+            ),
+          ),
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.shifting,
+        backgroundColor: Colors.blue,
+        // elevation: 0,
+        // fixedColor: Colors.white,
         items: <BottomNavigationBarItem>[
           ...this._routes.map(
                 (route) => BottomNavigationBarItem(
                   icon: Icon(route.icon),
                   title: Text(route.name),
+                  backgroundColor: route.color
                 ),
               ),
         ],
